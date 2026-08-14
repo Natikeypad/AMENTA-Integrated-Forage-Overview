@@ -12,7 +12,7 @@ export function getDb() {
   if (!instance) {
     const connection = mysql.createPool({
       uri: env.databaseUrl,
-      ssl: env.isProduction ? { rejectUnauthorized: true } : undefined,
+      ssl: env.isProduction ? { rejectUnauthorized: false } : undefined,
     });
     instance = drizzle(connection, {
       mode: "default",
